@@ -1,0 +1,6 @@
+.git         # Prevents leaking source history
+.gitignore
+Dockerfile
+node_modules/ # Usually installed inside the Dockerfile instead
+README.md
+tests/

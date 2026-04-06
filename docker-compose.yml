@@ -1,0 +1,20 @@
+services:
+  # Backend Server (Go)
+  backend:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: always
+
+  # Frontend Server (Nginx + React)
+  frontend:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: always
+    environment:
+      - VITE_WS_URL=ws://localhost:8080/ws
